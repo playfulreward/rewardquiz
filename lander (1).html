@@ -1,0 +1,891 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Apple Gift Card - Get Your $1000 Reward</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: #f5f5f7;
+            min-height: 100vh;
+            color: #1d1d1f;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 44px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .apple-logo {
+            width: 16px;
+            height: 20px;
+            color: #1d1d1f;
+            cursor: pointer;
+        }
+
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-icon {
+            width: 16px;
+            height: 16px;
+            color: #1d1d1f;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .header-icons a { text-decoration: none; }
+
+        /* ── STEP WRAPPER ── */
+        .step {
+            display: none;
+            min-height: 100vh;
+        }
+        .step.active { display: block; }
+
+        /* ── STEP 1: Hero ── */
+        #step1 {
+            background: linear-gradient(180deg, #f5f5f7 0%, #ffffff 100%);
+            padding-top: 44px;
+        }
+
+        .hero {
+            padding: 80px 20px 60px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #0071e3 0%, #0077ed 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 24px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            color: #1d1d1f;
+        }
+
+        .subtitle {
+            font-size: 21px;
+            color: #86868b;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .gift-card-visual {
+            width: 300px;
+            height: 190px;
+            margin: 0 auto 32px;
+            background: linear-gradient(135deg, #000000 0%, #434343 100%);
+            border-radius: 16px;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: perspective(1000px) rotateY(-5deg);
+            animation: float 3s ease-in-out infinite;
+            cursor: pointer;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: perspective(1000px) rotateY(-5deg) translateY(0); }
+            50% { transform: perspective(1000px) rotateY(-5deg) translateY(-10px); }
+        }
+
+        .gift-card-visual::before {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            top: 20px;
+            left: 20px;
+            background: white;
+            mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 16.97 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>') no-repeat;
+            mask-size: contain;
+            -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 16.97 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>') no-repeat;
+            -webkit-mask-size: contain;
+        }
+
+        .gift-card-visual::after {
+            content: '$1000';
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: white;
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        /* Learn More button */
+        .learn-more-btn {
+            display: inline-block;
+            background: #0071e3;
+            color: white;
+            padding: 16px 48px;
+            border-radius: 100px;
+            font-size: 17px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .learn-more-btn:hover {
+            background: #0077ed;
+            transform: scale(1.02);
+        }
+
+        .learn-more-btn:active { transform: scale(0.98); }
+
+        /* ── STEP 2: How it works ── */
+        #step2 {
+            background: #f5f5f7;
+            padding-top: 44px;
+            animation: slideUp 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .step2-inner {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 20px 20px 16px;
+            text-align: center;
+        }
+
+        .step2-inner h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 2px;
+        }
+
+        .step2-inner .step2-sub {
+            font-size: 15px;
+            color: #86868b;
+            margin-bottom: 16px;
+        }
+
+        /* Steps grid */
+        .steps-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .step-item {
+            background: white;
+            border-radius: 18px;
+            padding: 12px 12px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            animation: fadeSlide 0.4s ease both;
+        }
+
+        .step-item:nth-child(1) { animation-delay: 0.05s; }
+        .step-item:nth-child(2) { animation-delay: 0.15s; }
+        .step-item:nth-child(3) { animation-delay: 0.25s; }
+
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .step-icon-wrap {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #f5f5f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 4px;
+        }
+
+        .step-text strong {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 3px;
+        }
+
+        .step-text strong .hl-blue  { color: #0071e3; }
+        .step-text strong .hl-green { color: #34c759; }
+        .step-text strong .hl-amber { color: #ff9500; }
+
+        .step-text span {
+            font-size: 12px;
+            color: #86868b;
+            line-height: 1.3;
+        }
+
+        .cta-wrap {
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        /* CTA button */
+        .cta-button {
+            display: block;
+            background: #0071e3;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 14px;
+            font-size: 17px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 16px rgba(0, 113, 227, 0.25);
+            position: relative;
+            overflow: hidden;
+            animation: fadeSlide 0.4s 0.35s ease both;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover {
+            background: #0077ed;
+            transform: scale(1.02);
+            box-shadow: 0 8px 24px rgba(0, 113, 227, 0.35);
+        }
+
+        .cta-button:hover::before { left: 100%; }
+        .cta-button:active { transform: scale(0.98); }
+
+        .cta-helper {
+            margin-top: 8px;
+            font-size: 13px;
+            color: #86868b;
+            animation: fadeSlide 0.4s 0.45s ease both;
+        }
+
+        /* Reviews */
+        .reviews {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .reviews-content {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .reviews-header {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .reviews-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #1d1d1f;
+        }
+
+        .reviews-subtitle {
+            font-size: 18px;
+            color: #86868b;
+        }
+
+        .rating-summary {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid #d2d2d7;
+            margin-bottom: 28px;
+        }
+
+        .rating-number {
+            font-size: 72px;
+            font-weight: 500;
+            line-height: 1;
+            color: #1d1d1f;
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 6px;
+        }
+
+        .star, .review-star {
+            background: #ff9f0a;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+
+        .star { width: 22px; height: 22px; }
+        .review-star { width: 14px; height: 14px; }
+
+        .rating-count { color: #86868b; font-size: 16px; }
+
+        .review-cards { display: flex; flex-direction: column; gap: 22px; }
+
+        .review-card {
+            border-bottom: 1px solid #d2d2d7;
+            padding-bottom: 22px;
+        }
+
+        .review-card:last-child { border-bottom: none; }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .reviewer-name { font-weight: 600; font-size: 15px; color: #1d1d1f; }
+        .review-date { color: #86868b; font-size: 15px; }
+
+        .review-rating { display: flex; gap: 2px; margin-bottom: 6px; }
+
+        .review-title { font-weight: 600; font-size: 17px; margin-bottom: 6px; color: #1d1d1f; }
+
+        .review-text { font-size: 15px; line-height: 1.5; color: #1d1d1f; margin-bottom: 10px; }
+
+        .review-helpful { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #86868b; }
+
+        .helpful-button { color: #0071e3; text-decoration: none; font-size: 14px; }
+
+        /* Footer */
+        .footer {
+            background: #f5f5f7;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            padding: 32px 20px;
+        }
+
+        .footer-content {
+            max-width: 980px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: #86868b;
+            text-decoration: none;
+            font-size: 12px;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover { color: #0071e3; }
+
+        /* Notifications */
+        .notification {
+            position: fixed;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(245, 245, 247, 0.92);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 16px;
+            padding: 12px 16px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            z-index: 999;
+            transition: top 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+            max-width: calc(100vw - 32px);
+            width: 380px;
+            border: 0.5px solid rgba(255,255,255,0.18);
+        }
+
+        .notification.show { top: 60px; }
+
+        .notification-icon {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, #000 0%, #434343 100%);
+            border-radius: 8.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .notification-icon svg { width: 22px; height: 22px; color: white; }
+
+        .notification-content { flex: 1; padding-right: 8px; }
+
+        .notification-header { display: flex; align-items: baseline; gap: 8px; margin-bottom: 2px; }
+
+        .notification-app { font-size: 13px; font-weight: 600; color: #1d1d1f; }
+        .notification-time { font-size: 12px; color: #8e8e93; }
+        .notification-title { font-size: 15px; font-weight: 600; color: #1d1d1f; margin-bottom: 2px; }
+        .notification-body { font-size: 15px; color: #3c3c43; line-height: 1.3; }
+
+        /* Hero animations */
+        .hero-content > * {
+            animation: fadeIn 0.8s ease both;
+        }
+
+        .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+        .hero-content > *:nth-child(2) { animation-delay: 0.2s; }
+        .hero-content > *:nth-child(3) { animation-delay: 0.3s; }
+        .hero-content > *:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Urgency Block */
+        .urgency-block {
+            background: #fff;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            padding: 0 20px 0;
+        }
+
+        .urgency-inner {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 20px 0 4px;
+        }
+
+        /* Timer */
+        .urgency-timer-wrap {
+            text-align: center;
+            padding: 20px 0 16px;
+        }
+
+        .urgency-timer-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: #86868b;
+            margin-bottom: 12px;
+        }
+
+        .timer-digits {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 2px;
+        }
+
+        .timer-number {
+            font-size: 52px;
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+            color: #1d1d1f;
+            line-height: 1;
+            letter-spacing: -1px;
+            min-width: 64px;
+            text-align: center;
+        }
+
+        .timer-colon {
+            font-size: 42px;
+            font-weight: 200;
+            color: #c7c7cc;
+            line-height: 1;
+            padding: 0 1px;
+            position: relative;
+            top: -2px;
+        }
+
+        .timer-unit-row {
+            display: flex;
+            justify-content: center;
+            margin-top: 4px;
+        }
+
+        .timer-unit {
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: #aeaeb2;
+            width: 64px;
+            text-align: center;
+        }
+
+        /* Divider */
+        .urgency-divider {
+            height: 1px;
+            background: rgba(0,0,0,0.07);
+            margin: 0 0 0 0;
+        }
+
+        /* Spots + claimed rows */
+        .urgency-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 13px 20px;
+            font-size: 15px;
+            color: #1d1d1f;
+        }
+
+        .urgency-spots {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            color: #1d1d1f;
+        }
+
+        .urgency-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ff3b30;
+            display: inline-block;
+            animation: blink 1.2s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .urgency-claimed-row {
+            gap: 10px;
+            font-size: 14px;
+            color: #86868b;
+        }
+
+        .urgency-claimed-avatars { display: flex; }
+
+        .avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            margin-left: -6px;
+        }
+
+        .avatar:first-child { margin-left: 0; }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            h1 { font-size: 34px; }
+            .subtitle { font-size: 17px; }
+            .step2-inner h2 { font-size: 28px; }
+            .steps-list { grid-template-columns: 1fr; }
+            .gift-card-visual { width: 260px; height: 165px; }
+            .notification { width: calc(100vw - 16px); }
+            .notification.show { top: 56px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fixed Header -->
+    <header class="header">
+        <div class="header-content">
+            <svg class="apple-logo" viewBox="0 0 16 20" fill="currentColor">
+                <path d="M13.1 6.5C12.9 6.7 11.8 7.4 11.8 9.1C11.8 11.1 13.2 11.8 13.3 11.8C13.3 11.9 13 12.9 12.3 14C11.7 14.9 11.1 15.8 10 15.8C9 15.8 8.6 15.2 7.5 15.2C6.4 15.2 5.9 15.8 5 15.8C4 15.8 3.4 14.9 2.7 13.9C1.9 12.7 1.2 10.8 1.2 9C1.2 6.6 2.7 5.3 4.3 5.3C5.3 5.3 6.2 6 6.8 6C7.4 6 8.4 5.3 9.6 5.3C10 5.3 11.5 5.3 12.5 6.5L13.1 6.5ZM9.6 3.4C10.1 2.8 10.5 2 10.4 1.2C9.7 1.2 8.8 1.7 8.3 2.3C7.8 2.8 7.4 3.6 7.5 4.4C8.3 4.5 9.1 4 9.6 3.4Z"/>
+            </svg>
+            <div class="header-icons">
+                <svg class="header-icon" viewBox="0 0 18 18" fill="currentColor">
+                    <path d="M17.5 16.4l-4.8-4.8c1-1.2 1.5-2.7 1.5-4.3 0-3.9-3.1-7-7-7s-7 3.1-7 7 3.1 7 7 7c1.6 0 3.1-.5 4.3-1.5l4.8 4.8c.2.2.4.3.6.3s.4-.1.6-.3c.3-.3.3-.8 0-1.2zM1.7 7.2c0-3 2.5-5.5 5.5-5.5s5.5 2.5 5.5 5.5-2.5 5.5-5.5 5.5-5.5-2.5-5.5-5.5z"/>
+                </svg>
+                <svg class="header-icon" viewBox="0 0 18 18" fill="currentColor">
+                    <path d="M13.5 5h-1c0-1.9-1.6-3.5-3.5-3.5S5.5 3.1 5.5 5h-1C3.7 5 3 5.7 3 6.5v8c0 .8.7 1.5 1.5 1.5h9c.8 0 1.5-.7 1.5-1.5v-8c0-.8-.7-1.5-1.5-1.5zM9 2.5c1.4 0 2.5 1.1 2.5 2.5h-5c0-1.4 1.1-2.5 2.5-2.5zm4.5 12c0 .3-.2.5-.5.5H5c-.3 0-.5-.2-.5-.5v-8c0-.3.2-.5.5-.5h.5v1.5c0 .3.2.5.5.5s.5-.2.5-.5V6h5v1.5c0 .3.2.5.5.5s.5-.2.5-.5V6h.5c.3 0 .5.2.5.5v8z"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- ══════════════════════════════════════
+         STEP 1 — Hero
+    ══════════════════════════════════════ -->
+    <div id="step1" class="step active">
+        <section class="hero">
+            <div class="hero-content">
+                <div class="badge">Limited Time Offer</div>
+                <h1>Get Your $1000<br>Apple Gift Card</h1>
+                <p class="subtitle">3 simple steps — takes under 2 minutes</p>
+                <div class="gift-card-visual" onclick="goToStep2()" style="cursor:pointer;"></div>
+                <button class="learn-more-btn" onclick="goToStep2()">Learn More</button>
+            </div>
+        </section>
+
+        <!-- Urgency Block -->
+        <section class="urgency-block">
+            <div class="urgency-inner">
+                <div class="urgency-timer-wrap">
+                    <div class="urgency-timer-label">Offer expires in</div>
+                    <div class="timer-digits">
+                        <span class="timer-number" id="t-min">10</span>
+                        <span class="timer-colon">:</span>
+                        <span class="timer-number" id="t-sec">00</span>
+                    </div>
+                    <div class="timer-unit-row">
+                        <span class="timer-unit">min</span>
+                        <span class="timer-unit">sec</span>
+                    </div>
+                </div>
+                <div class="urgency-divider"></div>
+                <div class="urgency-row">
+                    <div class="urgency-spots">
+                        <span class="urgency-dot"></span>
+                        <span id="spots-left">23</span> rewards remaining in your area
+                    </div>
+                </div>
+                <div class="urgency-divider"></div>
+                <div class="urgency-row urgency-claimed-row">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#aeaeb2" stroke-width="1.8" stroke-linecap="round"/>
+                        <circle cx="9" cy="7" r="4" stroke="#aeaeb2" stroke-width="1.8"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="#aeaeb2" stroke-width="1.8" stroke-linecap="round"/>
+                    </svg>
+                    <span><strong id="claimed-count">1,847</strong> people claimed today</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         STEP 2 — How it works + CTA
+    ══════════════════════════════════════ -->
+    <div id="step2" class="step">
+        <div class="step2-inner">
+            <h2>Here's how it works</h2>
+            <p class="step2-sub">Complete all 3 steps to claim your reward</p>
+
+            <div class="steps-list">
+                <div class="step-item">
+                    <div class="step-icon-wrap">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="#0071e3"/>
+                        </svg>
+                    </div>
+                    <div class="step-text">
+                        <strong>Enter your <span class="hl-blue">basic info.</span></strong>
+                        <span>Quick registration with just your name and email address</span>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-icon-wrap">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <rect x="5" y="3" width="14" height="18" rx="2" stroke="#34c759" stroke-width="1.8" fill="none"/>
+                            <line x1="8" y1="9" x2="16" y2="9" stroke="#34c759" stroke-width="1.5" stroke-linecap="round"/>
+                            <line x1="8" y1="12" x2="16" y2="12" stroke="#34c759" stroke-width="1.5" stroke-linecap="round"/>
+                            <line x1="8" y1="15" x2="12" y2="15" stroke="#34c759" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="step-text">
+                        <strong>Complete a <span class="hl-blue">quick survey.</span></strong>
+                        <span>Answer a few questions about your shopping preferences</span>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-icon-wrap">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="9" stroke="#ff9500" stroke-width="1.8" fill="none"/>
+                            <path d="M8 12L11 15L16 9" stroke="#ff9500" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="step-text">
+                        <strong>Select <span class="hl-blue">partner deals.</span></strong>
+                        <span>Choose from recommended offers to maximize your reward</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-wrap">
+                <a id="CTA-Button-1" href="#" class="cta-button">Claim Your Apple Reward</a>
+                <p class="cta-helper">Limited spots remaining &bull; See if you're eligible</p>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content"></div>
+        </footer>
+    </div>
+
+    <script>
+        function goToStep2() {
+            document.getElementById('step1').classList.remove('active');
+            document.getElementById('step2').classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'instant' });
+        }
+
+        // Countdown timer — 10 minutes
+        (function() {
+            var secs = 10 * 60;
+            var elMin = document.getElementById('t-min');
+            var elSec = document.getElementById('t-sec');
+            if (!elMin || !elSec) return;
+            function tick() {
+                if (secs < 0) secs = 0;
+                var m = Math.floor(secs / 60);
+                var s = secs % 60;
+                elMin.textContent = m < 10 ? '0' + m : m;
+                elSec.textContent = s < 10 ? '0' + s : s;
+                if (secs > 0) { secs--; setTimeout(tick, 1000); }
+            }
+            tick();
+        })();
+
+        // Slowly decrement spots remaining
+        (function() {
+            var el = document.getElementById('spots-left');
+            if (!el) return;
+            var spots = parseInt(el.textContent, 10);
+            function decrement() {
+                if (spots <= 1) return;
+                spots--;
+                el.textContent = spots;
+                setTimeout(decrement, 18000 + Math.random() * 12000);
+            }
+            setTimeout(decrement, 20000 + Math.random() * 10000);
+        })();
+    </script>
+
+<script>
+(function() {
+  // Read s1-s5 from the current page's query string
+  var pageParams = new URLSearchParams(window.location.search);
+  var s1 = pageParams.get('s1') || '';
+  var s2 = pageParams.get('s2') || '';
+  var s3 = pageParams.get('s3') || '';
+  var s4 = pageParams.get('s4') || '';
+  var s5 = pageParams.get('s5') || '';
+  // Base offer URL (nc2u param is fixed)
+  var BASE_URL = 'https://spnccrzone.com/?nc2u=zx2qP%2FQPuBrN5t%2FiXSL%2Bil1ygqvwdaxuvQJDRoz7h5U%3D';
+
+  // Build the final destination URL, forwarding s1-s5 from page params
+  function buildDestUrl() {
+    var url = new URL(BASE_URL);
+    if (s1) url.searchParams.set('s1', s1);
+    if (s2) url.searchParams.set('s2', s2);
+    if (s3) url.searchParams.set('s3', s3);
+    if (s4) url.searchParams.set('s4', s4);
+    if (s5) url.searchParams.set('s5', s5);
+    return url.href;
+  }
+
+  // Device detection
+  var ua = navigator.userAgent || '';
+  var isAndroid = /android/i.test(ua);
+  var isIOS = /iphone|ipad|ipod/i.test(ua);
+
+  // Build Android Intent URL to bypass in-app WebView
+  function buildIntentUrl(destUrl) {
+    try {
+      var u = new URL(destUrl);
+      var scheme = u.protocol.replace(':', '');
+      var rest = u.host + u.pathname + u.search + u.hash;
+      return 'intent://' + rest + '#Intent;scheme=' + scheme + ';end';
+    } catch (e) { return null; }
+  }
+
+  // Force open in default browser, escaping any in-app WebView
+  function openInDefaultBrowser(destUrl) {
+    if (isAndroid) {
+      // Android Intent URL forces OS to open in default browser
+      var intent = buildIntentUrl(destUrl);
+      if (intent) { window.location.href = intent; return; }
+    }
+    if (isIOS) {
+      // x-safari- scheme tells iOS to hand URL directly to Safari,
+      // bypassing TikTok/IG/etc. in-app browser confirmation dialog
+      window.location.href = 'x-safari-' + destUrl;
+      // Fallback: if page is still visible after 300ms, try window.open
+      setTimeout(function() {
+        if (!document.hidden) {
+          try { window.open(destUrl, '_blank'); } catch (e) {}
+        }
+      }, 300);
+      return;
+    }
+    // Desktop or unrecognized: standard navigation
+    window.location.href = destUrl;
+  }
+
+  // Attach click handler to all CTA buttons
+  function setupCTAButtons() {
+    var ctaElements = document.querySelectorAll('[id="CTA-Button"], [id^="CTA-Button-"]');
+    ctaElements.forEach(function(el) {
+      // Set href for fallback (right-click, accessibility, JS-off)
+      if (el.tagName === 'A') el.setAttribute('href', buildDestUrl());
+      el.style.cursor = 'pointer';
+      // Clone to remove any previously attached listeners
+      var fresh = el.cloneNode(true);
+      el.parentNode.replaceChild(fresh, el);
+      fresh.addEventListener('click', function(e) {
+        e.preventDefault();
+        openInDefaultBrowser(buildDestUrl());
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupCTAButtons);
+  } else {
+    setupCTAButtons();
+  }
+})();
+</script>
+</body>
+</html>
